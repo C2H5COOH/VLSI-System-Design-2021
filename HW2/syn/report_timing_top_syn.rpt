@@ -1,0 +1,106 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'top' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : top
+Version: O-2018.06
+Date   : Wed Nov 10 14:00:10 2021
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: WCCOM   Library: fsa0m_a_generic_core_ss1p62v125c
+Wire Load Model Mode: enclosed
+
+  Startpoint: cpu/CPU1/MEM/aluResult_reg_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: cpu/CPU1/ID/ALUOp_reg_reg[0]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                enG1000K              fsa0m_a_generic_core_ss1p62v125c
+  CPU                enG30K                fsa0m_a_generic_core_ss1p62v125c
+  WB                 enG5K                 fsa0m_a_generic_core_ss1p62v125c
+  EXE                enG10K                fsa0m_a_generic_core_ss1p62v125c
+  ALU                enG5K                 fsa0m_a_generic_core_ss1p62v125c
+  ALU_DW01_cmp6_1    enG5K                 fsa0m_a_generic_core_ss1p62v125c
+  ID                 enG30K                fsa0m_a_generic_core_ss1p62v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             1.00       1.00
+  cpu/CPU1/MEM/aluResult_reg_reg[1]/CK (DFCRBN)           0.00 #     1.00 r
+  cpu/CPU1/MEM/aluResult_reg_reg[1]/Q (DFCRBN)            0.42       1.42 r
+  cpu/CPU1/MEM/aluResult_reg[1] (MEM)                     0.00       1.42 r
+  cpu/CPU1/WB/aluResult[1] (WB)                           0.00       1.42 r
+  cpu/CPU1/WB/U10/O (INV1S)                               0.22       1.63 f
+  cpu/CPU1/WB/U32/O (ND2S)                                0.24       1.87 r
+  cpu/CPU1/WB/U57/O (INV1S)                               0.21       2.09 f
+  cpu/CPU1/WB/U118/O (AOI22S)                             0.28       2.37 r
+  cpu/CPU1/WB/U119/O (ND2)                                0.12       2.50 f
+  cpu/CPU1/WB/U122/O (AN3)                                0.26       2.76 f
+  cpu/CPU1/WB/U21/O (ND2S)                                0.49       3.25 r
+  cpu/CPU1/WB/U15/O (INV2)                                0.03       3.29 f
+  cpu/CPU1/WB/U61/O (AO13S)                               0.53       3.82 f
+  cpu/CPU1/WB/U4/O (INV4CK)                               0.26       4.08 r
+  cpu/CPU1/WB/U141/O (OAI112HS)                           0.38       4.46 f
+  cpu/CPU1/WB/ID_writeData[16] (WB)                       0.00       4.46 f
+  cpu/CPU1/EXE/WB_writeData[16] (EXE)                     0.00       4.46 f
+  cpu/CPU1/EXE/U195/O (INV1S)                             0.22       4.68 r
+  cpu/CPU1/EXE/U117/O (OA222S)                            0.41       5.09 r
+  cpu/CPU1/EXE/U402/O (ND2)                               0.10       5.19 f
+  cpu/CPU1/EXE/alu/src1[16] (ALU)                         0.00       5.19 f
+  cpu/CPU1/EXE/alu/U33/O (BUF2)                           0.35       5.54 f
+  cpu/CPU1/EXE/alu/r322/A[16] (ALU_DW01_cmp6_1)           0.00       5.54 f
+  cpu/CPU1/EXE/alu/r322/U301/O (XNR2HS)                   0.25       5.78 f
+  cpu/CPU1/EXE/alu/r322/U245/O (NR2)                      0.16       5.94 r
+  cpu/CPU1/EXE/alu/r322/U200/O (ND2S)                     0.10       6.04 f
+  cpu/CPU1/EXE/alu/r322/U244/O (NR2)                      0.14       6.19 r
+  cpu/CPU1/EXE/alu/r322/U199/O (ND2S)                     0.16       6.35 f
+  cpu/CPU1/EXE/alu/r322/U249/O (OAI12HS)                  0.23       6.58 r
+  cpu/CPU1/EXE/alu/r322/U322/O (AOI12HS)                  0.16       6.73 f
+  cpu/CPU1/EXE/alu/r322/U219/O (OAI12H)                   0.19       6.93 r
+  cpu/CPU1/EXE/alu/r322/U218/O (AOI12H)                   0.12       7.05 f
+  cpu/CPU1/EXE/alu/r322/U216/O (OAI12H)                   0.19       7.23 r
+  cpu/CPU1/EXE/alu/r322/U215/O (AOI12H)                   0.12       7.35 f
+  cpu/CPU1/EXE/alu/r322/U213/O (OAI12H)                   0.19       7.53 r
+  cpu/CPU1/EXE/alu/r322/U207/O (AOI12H)                   0.12       7.65 f
+  cpu/CPU1/EXE/alu/r322/U206/O (OAI12H)                   0.19       7.84 r
+  cpu/CPU1/EXE/alu/r322/U194/O (AOI12H)                   0.12       7.95 f
+  cpu/CPU1/EXE/alu/r322/U221/O (OAI12H)                   0.18       8.14 r
+  cpu/CPU1/EXE/alu/r322/U266/O (INV1S)                    0.14       8.28 f
+  cpu/CPU1/EXE/alu/r322/LT (ALU_DW01_cmp6_1)              0.00       8.28 f
+  cpu/CPU1/EXE/alu/U387/O (MUX3)                          0.38       8.66 f
+  cpu/CPU1/EXE/alu/U388/O (MUX2)                          0.28       8.94 f
+  cpu/CPU1/EXE/alu/U389/O (AN3)                           0.26       9.21 f
+  cpu/CPU1/EXE/alu/branch (ALU)                           0.00       9.21 f
+  cpu/CPU1/EXE/U514/O (AO112)                             0.36       9.57 f
+  cpu/CPU1/EXE/IF_ID_jumpBranch (EXE)                     0.00       9.57 f
+  cpu/CPU1/ID/EXE_jumpBranch (ID)                         0.00       9.57 f
+  cpu/CPU1/ID/U4/O (NR3)                                  0.35       9.92 r
+  cpu/CPU1/ID/U3/O (BUF8)                                 0.67      10.59 r
+  cpu/CPU1/ID/ALUOp_reg_reg[0]/RB (DFCLRBN)               0.00      10.59 r
+  data arrival time                                                 10.59
+
+  clock clk (rise edge)                                  10.00      10.00
+  clock network delay (ideal)                             1.00      11.00
+  clock uncertainty                                      -0.10      10.90
+  cpu/CPU1/ID/ALUOp_reg_reg[0]/CK (DFCLRBN)               0.00      10.90 r
+  library setup time                                     -0.31      10.59
+  data required time                                                10.59
+  --------------------------------------------------------------------------
+  data required time                                                10.59
+  data arrival time                                                -10.59
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+1

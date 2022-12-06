@@ -1,0 +1,112 @@
+Loading db file '/usr/cad/CBDK/CBDK018_UMC_Faraday_v1.0/orig_lib/fsa0m_a/2009Q2v2.0/GENERIC_CORE/FrontEnd/synopsys/fsa0m_a_generic_core_ss1p62v125c.db'
+Loading db file '/home/user2/vsd21/vsd2145/Homework/N26100595/sim/SRAM/SRAM_WC.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+Warning: Design has unannotated black box outputs. (PWR-428)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : top
+Version: O-2018.06
+Date   : Wed Nov 10 14:00:13 2021
+****************************************
+
+
+Library(s) Used:
+
+    fsa0m_a_generic_core_ss1p62v125c (File: /usr/cad/CBDK/CBDK018_UMC_Faraday_v1.0/orig_lib/fsa0m_a/2009Q2v2.0/GENERIC_CORE/FrontEnd/synopsys/fsa0m_a_generic_core_ss1p62v125c.db)
+    SRAM_WC (File: /home/user2/vsd21/vsd2145/Homework/N26100595/sim/SRAM/SRAM_WC.db)
+
+
+Operating Conditions: WCCOM   Library: fsa0m_a_generic_core_ss1p62v125c
+Wire Load Model Mode: enclosed
+
+Design        Wire Load Model            Library
+------------------------------------------------
+top                    enG1000K          fsa0m_a_generic_core_ss1p62v125c
+CPU_wrapper            enG30K            fsa0m_a_generic_core_ss1p62v125c
+AXI                    enG5K             fsa0m_a_generic_core_ss1p62v125c
+SRAM_wrapper_0         enG500K           fsa0m_a_generic_core_ss1p62v125c
+CPU                    enG30K            fsa0m_a_generic_core_ss1p62v125c
+AXIMaster_master0      enG5K             fsa0m_a_generic_core_ss1p62v125c
+AXIMaster_master1      enG5K             fsa0m_a_generic_core_ss1p62v125c
+ReadAXI                enG5K             fsa0m_a_generic_core_ss1p62v125c
+WriteAXI               enG5K             fsa0m_a_generic_core_ss1p62v125c
+AXISlave_0             enG5K             fsa0m_a_generic_core_ss1p62v125c
+IF                     enG5K             fsa0m_a_generic_core_ss1p62v125c
+ID                     enG30K            fsa0m_a_generic_core_ss1p62v125c
+EXE                    enG10K            fsa0m_a_generic_core_ss1p62v125c
+MEM                    enG5K             fsa0m_a_generic_core_ss1p62v125c
+WB                     enG5K             fsa0m_a_generic_core_ss1p62v125c
+MasterRead_master_read0
+                       enG5K             fsa0m_a_generic_core_ss1p62v125c
+MasterWrite_master_write0
+                       enG5K             fsa0m_a_generic_core_ss1p62v125c
+MasterRead_master_read1
+                       enG5K             fsa0m_a_generic_core_ss1p62v125c
+MasterWrite_master_write1
+                       enG5K             fsa0m_a_generic_core_ss1p62v125c
+ReadArbiter            enG5K             fsa0m_a_generic_core_ss1p62v125c
+ReadDecoder            enG5K             fsa0m_a_generic_core_ss1p62v125c
+WriteArbiter           enG5K             fsa0m_a_generic_core_ss1p62v125c
+WriteDecoder           enG5K             fsa0m_a_generic_core_ss1p62v125c
+SlaveRead_0            enG5K             fsa0m_a_generic_core_ss1p62v125c
+SlaveWrite_0           enG5K             fsa0m_a_generic_core_ss1p62v125c
+PC                     enG5K             fsa0m_a_generic_core_ss1p62v125c
+Control                enG5K             fsa0m_a_generic_core_ss1p62v125c
+Imm                    enG5K             fsa0m_a_generic_core_ss1p62v125c
+R_File                 enG30K            fsa0m_a_generic_core_ss1p62v125c
+Hazard                 enG5K             fsa0m_a_generic_core_ss1p62v125c
+ALU                    enG5K             fsa0m_a_generic_core_ss1p62v125c
+Forward                enG5K             fsa0m_a_generic_core_ss1p62v125c
+SRAM_wrapper_1         enG500K           fsa0m_a_generic_core_ss1p62v125c
+AXISlave_1             enG5K             fsa0m_a_generic_core_ss1p62v125c
+SlaveRead_1            enG5K             fsa0m_a_generic_core_ss1p62v125c
+SlaveWrite_1           enG5K             fsa0m_a_generic_core_ss1p62v125c
+IF_DW01_add_0          enG5K             fsa0m_a_generic_core_ss1p62v125c
+SlaveWrite_0_DW01_add_2
+                       enG5K             fsa0m_a_generic_core_ss1p62v125c
+SlaveWrite_1_DW01_add_2
+                       enG5K             fsa0m_a_generic_core_ss1p62v125c
+SlaveRead_0_DW01_add_2 enG5K             fsa0m_a_generic_core_ss1p62v125c
+SlaveRead_1_DW01_add_2 enG5K             fsa0m_a_generic_core_ss1p62v125c
+ALU_DW01_cmp2_1        enG5K             fsa0m_a_generic_core_ss1p62v125c
+ALU_DW01_sub_1         enG5K             fsa0m_a_generic_core_ss1p62v125c
+ALU_DW01_add_2         enG5K             fsa0m_a_generic_core_ss1p62v125c
+EXE_DW01_add_1         enG5K             fsa0m_a_generic_core_ss1p62v125c
+ALU_DW01_cmp6_1        enG5K             fsa0m_a_generic_core_ss1p62v125c
+ALU_DW01_add_4         enG5K             fsa0m_a_generic_core_ss1p62v125c
+
+
+Global Operating Voltage = 1.62 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+  Cell Internal Power  = 123.5786 mW   (99%)
+  Net Switching Power  =   1.7782 mW    (1%)
+                         ---------
+Total Dynamic Power    = 125.3569 mW  (100%)
+
+Cell Leakage Power     =   1.2345 mW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory           114.7420        4.2236e-02        1.2171e+09          116.0014  (  91.63%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register           8.3887        9.0706e-02        7.8982e+06            8.4874  (   6.70%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational      0.4479            1.6454        9.4768e+06            2.1028  (   1.66%)
+--------------------------------------------------------------------------------------------------
+Total            123.5787 mW         1.7784 mW     1.2345e+09 pW       126.5916 mW
+1
