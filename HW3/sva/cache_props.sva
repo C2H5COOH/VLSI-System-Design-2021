@@ -1,0 +1,140 @@
+//===============================================
+// Author: 		Chen Yun-Ru
+// Filename:	cache_props.sva
+// Description: Assumptions/Assertions for cache
+// Version:		0.1
+//===============================================
+
+`include "../include/Cache_define.svh"
+
+module cache_props(
+	input clk,
+	input rst,
+	//Core to cache
+	input [`DATA_BITS-1:0] core_addr,
+	input [4:0]	core_strb,
+	input core_req,
+	input core_write,
+	input [`DATA_BITS-1:0] core_in,
+	//input [`CACHE_TYPE_BITS-1:0] core_type,
+	//Cache to core
+	input [`DATA_BITS-1:0] core_out,
+	input core_wait,
+	//Cache to CPU wrapper
+	input D_req_read,
+	input [`DATA_BITS-1:0] D_addr,
+	input [4:0]	D_strb,
+	input D_write,
+	input [`DATA_BITS-1:0] D_in,
+	//input [`CACHE_TYPE_BITS-1:0] D_type,
+	//CPU wrapper to cache
+	input [`DATA_BITS-1:0] D_out,
+	input D_wait
+);
+	//assumptions	
+	//Description: During core wait, the core_addr should be stable
+	core_addr_stable: assume property(
+		@(posedge clk) disable iff(rst)
+		core_wait |-> $stable(core_addr)
+	);	
+	//Description: During core wait, the core_in should be stable
+	core_in_stable: assume property(
+		@(posedge clk) disable iff(rst)
+		core_wait |-> $stable(core_in)
+	);
+	/*core_type_stable: assume property(
+		@(posedge clk) disable iff(rst)
+		core_wait |-> $stable(core_type)
+	);	*/
+	core_write_stable: assume property(
+		@(posedge clk) disable iff(rst)
+		core_wait |-> $stable(core_write)
+	);	
+	//Description: D_wait will rise for 2-4 cycles after D_req rise
+	D_wait_when_D_req: assume property(
+		@(posedge clk) disable iff(rst)
+		  (D_req_read && !D_wait) |=> (D_wait ##[2:4] !D_wait)
+    );
+	//Description: if no core_wait, core_req will rise
+	core_req_fall : assume property(
+	    @(posedge clk) disable iff(rst)
+		!core_wait |-> core_req
+	);
+	//Description: There are 5 kinds of core_type
+	/*core_type_kind: assume property(
+		@(posedge clk) disable iff(rst)
+		(core_type==`CACHE_BYTE) || (core_type==`CACHE_HWORD) || (core_type==`CACHE_WORD) ||
+		(core_type==`CACHE_BYTE_U) || (core_type==`CACHE_HWORD_U)
+	);*/
+	//Description: When core_type=WORD, core_addr should align with word
+	core_addr_word_align: assume property(
+		@(posedge clk) disable iff(rst)
+		//(core_type[1:0]==`WORD) |-> (core_addr[1:0]==2'b00)
+		(core_strb == 4'b0000) |-> (core_addr[1:0]==2'b00)
+	);
+
+	//Description: When core_type=HWORD, core_addr should align with half-word
+	core_addr_hword_align: assume property(
+		@(posedge clk) disable iff(rst)
+		(core_strb == 4'b1100) |-> (core_addr[0]==1'b0)
+		//(core_type[1:0]==`HWORD) |-> (core_addr[0]==1'b0)
+	);	
+	
+	typedef enum logic[`CACHE_STATE_BITS-1:0] { 
+		IDLE, READ, READ_MISS, READ_BURST, READ_END, WRITE, DEFAULT
+	} FSM;
+	//assertions
+	//Description: D_write should rise when write action
+	D_write_rise : assert property(
+		@(posedge clk) disable iff(rst)
+		((L1C_data.state==IDLE)&&(core_req)&&(core_strb != (4'b1111)) ) |-> ##[0:$] (D_strb==core_strb )
+	);
+	//Description: D_in should same as core_in when write action
+	D_in_when_write : assert property(
+		@(posedge clk) disable iff(rst)
+		((L1C_data.state==IDLE)&&(core_req)&&(core_strb != (4'b1111)) ) |-> ##[0:$] (core_in == D_in)
+	);
+	//Description: D_type should same as core_type when write action
+	D_type_when_write : assert property(
+		@(posedge clk) disable iff(rst)
+		((L1C_data.state==IDLE)&&(core_req)&&(core_strb != (4'b1111)) ) |-> ##[0:$] (core_strb == D_strb)
+	);
+	//Description: D_addr should same as core_addr when write action
+	//D_addr_when_write : assert property(
+	//	@(posedge clk) disable iff(rst)
+	//	(core_req && core_write) |-> ##[0:$] (core_addr == D_addr)
+	//);
+	//Description: D_addr align with word
+	D_addr_word_align: assert property(
+		@(posedge clk) disable iff(rst)
+		(D_req_read) |-> (D_addr[1:0]==2'b00)
+	);
+	//Description: D_addr align with half-word
+	D_addr_hword_align: assert property(
+		@(posedge clk) disable iff(rst)
+		(D_strb == 4'b1100) |-> (D_addr[0]==1'b0)
+	);	
+	
+endmodule
+
+bind L1C_data cache_props cache_props_u1( 
+	.clk(clk),
+	.rst(rst),
+	.core_addr(core_addr),
+	.core_req(core_req),
+	.core_write(core_write),
+	.core_in(core_in),
+	//.core_type(core_type),
+	.core_out(core_out),
+	.core_wait(core_wait),
+	.core_strb(core_strb),
+	.D_req_read(D_req_read),
+	.D_addr(D_addr),
+	.D_write(D_write),
+	.D_in(D_in),
+	.D_strb(D_strb),
+	//.D_type(D_type),
+	.D_out(D_out),
+	.D_wait(D_wait)
+); //connect SVA module ports with DUT module ports
+

@@ -1,0 +1,22 @@
+Information: Updating graph... (UID-83)
+Warning: Design 'top' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : clocks
+Design : top
+Version: Q-2019.12
+Date   : Wed Dec  1 01:32:07 2021
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+clk             12.00   {0 6}               d f       {clk}
+--------------------------------------------------------------------------------
+1

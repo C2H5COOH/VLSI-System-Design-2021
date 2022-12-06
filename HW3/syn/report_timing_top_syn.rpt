@@ -1,0 +1,209 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'top' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : top
+Version: Q-2019.12
+Date   : Wed Dec  1 01:32:07 2021
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: WCCOM   Library: fsa0m_a_generic_core_ss1p62v125c
+Wire Load Model Mode: enclosed
+
+  Startpoint: cpu/CPU1/ID/rs1_reg_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: DRAM_D[28] (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top                enG1000K              fsa0m_a_generic_core_ss1p62v125c
+  CPU                enG30K                fsa0m_a_generic_core_ss1p62v125c
+  Forward            enG5K                 fsa0m_a_generic_core_ss1p62v125c
+  EXE                enG10K                fsa0m_a_generic_core_ss1p62v125c
+  ALU                enG5K                 fsa0m_a_generic_core_ss1p62v125c
+  ALU_DW01_cmp6_2    enG5K                 fsa0m_a_generic_core_ss1p62v125c
+  IF                 enG5K                 fsa0m_a_generic_core_ss1p62v125c
+  CPU_wrapper        enG200K               fsa0m_a_generic_core_ss1p62v125c
+  L1C_inst           enG50K                fsa0m_a_generic_core_ss1p62v125c
+  MasterRead_master_read0
+                     enG5K                 fsa0m_a_generic_core_ss1p62v125c
+  ReadArbiter        enG5K                 fsa0m_a_generic_core_ss1p62v125c
+  ReadAXI            enG5K                 fsa0m_a_generic_core_ss1p62v125c
+  ReadDecoder        enG5K                 fsa0m_a_generic_core_ss1p62v125c
+  AXI                enG5K                 fsa0m_a_generic_core_ss1p62v125c
+  AXISlaveDRAM       enG5K                 fsa0m_a_generic_core_ss1p62v125c
+  SlaveWriteDRAM     enG5K                 fsa0m_a_generic_core_ss1p62v125c
+  WriteAXI           enG5K                 fsa0m_a_generic_core_ss1p62v125c
+  MasterWrite_master_write1
+                     enG5K                 fsa0m_a_generic_core_ss1p62v125c
+  DRAM_wrapper       enG5K                 fsa0m_a_generic_core_ss1p62v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             1.00       1.00
+  cpu/CPU1/ID/rs1_reg_reg[1]/CK (DFFP)                    0.00 #     1.00 r
+  cpu/CPU1/ID/rs1_reg_reg[1]/Q (DFFP)                     0.44       1.44 f
+  cpu/CPU1/ID/rs1_reg[1] (ID)                             0.00       1.44 f
+  cpu/CPU1/EXE/rs1[1] (EXE)                               0.00       1.44 f
+  cpu/CPU1/EXE/forward/rs1[1] (Forward)                   0.00       1.44 f
+  cpu/CPU1/EXE/forward/U15/O (XOR2HS)                     0.27       1.71 f
+  cpu/CPU1/EXE/forward/U90/O (NR3HT)                      0.17       1.88 r
+  cpu/CPU1/EXE/forward/U3/O (ND3HT)                       0.13       2.01 f
+  cpu/CPU1/EXE/forward/U71/O (AOI112H)                    0.25       2.25 r
+  cpu/CPU1/EXE/forward/rdataSrc1[1] (Forward)             0.00       2.25 r
+  cpu/CPU1/EXE/U302/O (BUF6)                              0.18       2.44 r
+  cpu/CPU1/EXE/U62/O (INV4)                               0.07       2.51 f
+  cpu/CPU1/EXE/U331/O (ND2F)                              0.14       2.65 r
+  cpu/CPU1/EXE/U336/O (INV8)                              0.09       2.74 f
+  cpu/CPU1/EXE/U305/O (ND2F)                              0.15       2.89 r
+  cpu/CPU1/EXE/U20/O (OA222P)                             0.46       3.35 r
+  cpu/CPU1/EXE/U145/O (ND2P)                              0.11       3.46 f
+  cpu/CPU1/EXE/alu/src1[2] (ALU)                          0.00       3.46 f
+  cpu/CPU1/EXE/alu/U7/O (BUF8CK)                          0.16       3.62 f
+  cpu/CPU1/EXE/alu/r390/A[2] (ALU_DW01_cmp6_2)            0.00       3.62 f
+  cpu/CPU1/EXE/alu/r390/U174/O (XOR2HT)                   0.17       3.80 f
+  cpu/CPU1/EXE/alu/r390/U309/O (NR2F)                     0.13       3.93 r
+  cpu/CPU1/EXE/alu/r390/U192/O (AOI12HT)                  0.10       4.03 f
+  cpu/CPU1/EXE/alu/r390/U261/O (OAI12HT)                  0.15       4.18 r
+  cpu/CPU1/EXE/alu/r390/U262/O (AOI12HP)                  0.10       4.28 f
+  cpu/CPU1/EXE/alu/r390/U276/O (OAI12HP)                  0.17       4.45 r
+  cpu/CPU1/EXE/alu/r390/GE (ALU_DW01_cmp6_2)              0.00       4.45 r
+  cpu/CPU1/EXE/alu/U49/O (MOAI1HP)                        0.22       4.67 r
+  cpu/CPU1/EXE/alu/U48/O (OAI12HP)                        0.10       4.77 f
+  cpu/CPU1/EXE/alu/U42/O (AN4B1P)                         0.16       4.93 r
+  cpu/CPU1/EXE/alu/branch (ALU)                           0.00       4.93 r
+  cpu/CPU1/EXE/U179/O (MOAI1HT)                           0.11       5.03 f
+  cpu/CPU1/EXE/U180/O (INV12)                             0.11       5.15 r
+  cpu/CPU1/EXE/IF_ID_jumpBranch (EXE)                     0.00       5.15 r
+  cpu/CPU1/IF/EXE_jumpBranch (IF)                         0.00       5.15 r
+  cpu/CPU1/IF/U16/O (INV4CK)                              0.12       5.27 f
+  cpu/CPU1/IF/U33/O (MOAI1H)                              0.25       5.52 f
+  cpu/CPU1/IF/IM_addr[23] (IF)                            0.00       5.52 f
+  cpu/CPU1/U14/O (BUF8CK)                                 0.17       5.69 f
+  cpu/CPU1/IM_addr[23] (CPU)                              0.00       5.69 f
+  cpu/cache_i/core_addr[23] (L1C_inst)                    0.00       5.69 f
+  cpu/cache_i/U14/O (XNR2HT)                              0.14       5.83 f
+  cpu/cache_i/U96/O (NR3HT)                               0.12       5.95 r
+  cpu/cache_i/U93/O (ND3HT)                               0.12       6.07 f
+  cpu/cache_i/U94/O (NR3HT)                               0.12       6.19 r
+  cpu/cache_i/U103/O (ND3HT)                              0.14       6.33 f
+  cpu/cache_i/U88/O (ND2F)                                0.14       6.47 r
+  cpu/cache_i/U87/O (BUF12CK)                             0.21       6.69 r
+  cpu/cache_i/U15/O (OAI22HP)                             0.16       6.85 f
+  cpu/cache_i/I_addr[31] (L1C_inst)                       0.00       6.85 f
+  cpu/axi_master0/address[31] (AXIMaster_master0)         0.00       6.85 f
+  cpu/axi_master0/MasterRead/address[31] (MasterRead_master_read0)
+                                                          0.00       6.85 f
+  cpu/axi_master0/MasterRead/U15/O (INV8)                 0.10       6.94 r
+  cpu/axi_master0/MasterRead/U95/O (MAOI1HT)              0.13       7.08 f
+  cpu/axi_master0/MasterRead/ARADDR[31] (MasterRead_master_read0)
+                                                          0.00       7.08 f
+  cpu/axi_master0/ARADDR[31] (AXIMaster_master0)          0.00       7.08 f
+  cpu/ARADDR_M0[31] (CPU_wrapper)                         0.00       7.08 f
+  axi_duv_bridge/ARADDR_M0[31] (AXI)                      0.00       7.08 f
+  axi_duv_bridge/readAXI/ARADDR_M0[31] (ReadAXI)          0.00       7.08 f
+  axi_duv_bridge/readAXI/readArbiter/ARADDR_M0[31] (ReadArbiter)
+                                                          0.00       7.08 f
+  axi_duv_bridge/readAXI/readArbiter/U47/O (ND2F)         0.10       7.17 r
+  axi_duv_bridge/readAXI/readArbiter/U180/O (ND3HT)       0.13       7.30 f
+  axi_duv_bridge/readAXI/readArbiter/ARADDR[31] (ReadArbiter)
+                                                          0.00       7.30 f
+  axi_duv_bridge/readAXI/readDecoder/ARADDR[31] (ReadDecoder)
+                                                          0.00       7.30 f
+  axi_duv_bridge/readAXI/readDecoder/U57/O (NR2F)         0.15       7.45 r
+  axi_duv_bridge/readAXI/readDecoder/U23/O (INV4)         0.06       7.51 f
+  axi_duv_bridge/readAXI/readDecoder/U22/O (NR2F)         0.11       7.62 r
+  axi_duv_bridge/readAXI/readDecoder/U10/O (ND2F)         0.08       7.69 f
+  axi_duv_bridge/readAXI/readDecoder/U5/O (AOI13HT)       0.16       7.85 r
+  axi_duv_bridge/readAXI/readDecoder/U31/O (ND2F)         0.11       7.96 f
+  axi_duv_bridge/readAXI/readDecoder/U15/O (INV6)         0.08       8.04 r
+  axi_duv_bridge/readAXI/readDecoder/U45/O (OAI12HT)      0.08       8.13 f
+  axi_duv_bridge/readAXI/readDecoder/ReadAddressSel[0] (ReadDecoder)
+                                                          0.00       8.13 f
+  axi_duv_bridge/readAXI/U58/O (INV4)                     0.06       8.19 r
+  axi_duv_bridge/readAXI/U57/O (AN4B1)                    0.23       8.42 r
+  axi_duv_bridge/readAXI/ARVALID_S4 (ReadAXI)             0.00       8.42 r
+  axi_duv_bridge/U1/O (BUF8)                              0.20       8.62 r
+  axi_duv_bridge/ARVALID_S4 (AXI)                         0.00       8.62 r
+  DRAM/ARVALID (DRAM_wrapper)                             0.00       8.62 r
+  DRAM/axiSlaveDRAM/ARVALID (AXISlaveDRAM)                0.00       8.62 r
+  DRAM/axiSlaveDRAM/U50/O (INV12)                         0.06       8.68 f
+  DRAM/axiSlaveDRAM/U51/O (OAI12HT)                       0.18       8.86 r
+  DRAM/axiSlaveDRAM/slaveWriteDRAM/select[0] (SlaveWriteDRAM)
+                                                          0.00       8.86 r
+  DRAM/axiSlaveDRAM/slaveWriteDRAM/U14/O (INV8)           0.06       8.92 f
+  DRAM/axiSlaveDRAM/slaveWriteDRAM/U60/O (AOI13HT)        0.18       9.10 r
+  DRAM/axiSlaveDRAM/slaveWriteDRAM/U59/O (OAI12HT)        0.15       9.25 f
+  DRAM/axiSlaveDRAM/slaveWriteDRAM/U64/O (INV12CK)        0.10       9.35 r
+  DRAM/axiSlaveDRAM/slaveWriteDRAM/AWREADY (SlaveWriteDRAM)
+                                                          0.00       9.35 r
+  DRAM/axiSlaveDRAM/AWREADY (AXISlaveDRAM)                0.00       9.35 r
+  DRAM/AWREADY (DRAM_wrapper)                             0.00       9.35 r
+  axi_duv_bridge/AWREADY_S4 (AXI)                         0.00       9.35 r
+  axi_duv_bridge/writeAXI/AWREADY_S4 (WriteAXI)           0.00       9.35 r
+  axi_duv_bridge/writeAXI/U64/O (NR2F)                    0.07       9.42 f
+  axi_duv_bridge/writeAXI/U65/O (OAI12HT)                 0.27       9.69 r
+  axi_duv_bridge/writeAXI/AWREADY_M1 (WriteAXI)           0.00       9.69 r
+  axi_duv_bridge/AWREADY_M1 (AXI)                         0.00       9.69 r
+  cpu/AWREADY_M1 (CPU_wrapper)                            0.00       9.69 r
+  cpu/axi_master1/AWREADY (AXIMaster_master1)             0.00       9.69 r
+  cpu/axi_master1/MasterWrite/AWREADY (MasterWrite_master_write1)
+                                                          0.00       9.69 r
+  cpu/axi_master1/MasterWrite/U15/O (INV8)                0.08       9.76 f
+  cpu/axi_master1/MasterWrite/U43/O (MAOI1HT)             0.27      10.03 r
+  cpu/axi_master1/MasterWrite/WVALID (MasterWrite_master_write1)
+                                                          0.00      10.03 r
+  cpu/axi_master1/WVALID (AXIMaster_master1)              0.00      10.03 r
+  cpu/WVALID_M1 (CPU_wrapper)                             0.00      10.03 r
+  axi_duv_bridge/WVALID_M1 (AXI)                          0.00      10.03 r
+  axi_duv_bridge/writeAXI/WVALID_M1 (WriteAXI)            0.00      10.03 r
+  axi_duv_bridge/writeAXI/U78/O (ND2F)                    0.13      10.17 f
+  axi_duv_bridge/writeAXI/U79/O (INV12CK)                 0.15      10.32 r
+  axi_duv_bridge/writeAXI/WVALID_S4 (WriteAXI)            0.00      10.32 r
+  axi_duv_bridge/WVALID_S4 (AXI)                          0.00      10.32 r
+  DRAM/WVALID (DRAM_wrapper)                              0.00      10.32 r
+  DRAM/axiSlaveDRAM/WVALID (AXISlaveDRAM)                 0.00      10.32 r
+  DRAM/axiSlaveDRAM/slaveWriteDRAM/WVALID (SlaveWriteDRAM)
+                                                          0.00      10.32 r
+  DRAM/axiSlaveDRAM/slaveWriteDRAM/U41/O (ND2P)           0.07      10.39 f
+  DRAM/axiSlaveDRAM/slaveWriteDRAM/U42/O (INV2CK)         0.07      10.45 r
+  DRAM/axiSlaveDRAM/slaveWriteDRAM/Address[15] (SlaveWriteDRAM)
+                                                          0.00      10.45 r
+  DRAM/axiSlaveDRAM/U44/O (AOI12H)                        0.09      10.54 f
+  DRAM/axiSlaveDRAM/U45/O (INV2)                          0.09      10.63 r
+  DRAM/axiSlaveDRAM/Address[15] (AXISlaveDRAM)            0.00      10.63 r
+  DRAM/U93/OEQ (CMPE4)                                    0.57      11.20 r
+  DRAM/U87/O (ND2P)                                       0.10      11.30 f
+  DRAM/U88/O (INV4)                                       0.08      11.37 r
+  DRAM/U86/O (ND2F)                                       0.09      11.47 f
+  DRAM/U99/O (INV12)                                      0.12      11.59 r
+  DRAM/U117/O (INV12)                                     0.06      11.65 f
+  DRAM/U116/O (MAOI1HT)                                   0.23      11.87 f
+  DRAM/U82/O (INV12)                                      0.11      11.98 r
+  DRAM/DI[28] (DRAM_wrapper)                              0.00      11.98 r
+  U18/O (BUF12CK)                                         0.18      12.16 r
+  DRAM_D[28] (out)                                        0.00      12.16 r
+  data arrival time                                                 12.16
+
+  clock clk (rise edge)                                  12.00      12.00
+  clock network delay (ideal)                             1.00      13.00
+  clock uncertainty                                      -0.10      12.90
+  output external delay                                  -6.00       6.90
+  data required time                                                 6.90
+  --------------------------------------------------------------------------
+  data required time                                                 6.90
+  data arrival time                                                -12.16
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -5.26
+
+
+1
